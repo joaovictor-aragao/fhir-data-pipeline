@@ -10,7 +10,7 @@
 
 ## Overview
 
-![Nifi Flow Diagram](imgs/nifi-flow.png)
+![Nifi Flow Diagram](img/nifi-flow.png)
 
 This project implements a **complete clinical data ingestion and integration pipeline** using:
 
