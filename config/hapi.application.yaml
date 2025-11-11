@@ -1,0 +1,49 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: r4
+  datasource:
+    url: jdbc:postgresql://db:5432/hapi
+    username: admin
+    password: admin
+    driverClassName: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate.dialect: ca.uhn.fhir.jpa.model.dialect.HapiFhirPostgresDialect
+      hibernate.search.enabled: false
+
+# ---- HAPI FHIR ----
+hapi:
+  fhir:
+    # all variants that some starters already checked up:
+    fhir_version: R4
+    version: R4
+    default_version: R4
+
+    # Turn off modules to avoid unecessary scans
+    cr:
+      enabled: false
+    ig:
+      enabled: false
+    mdm_enabled: false
+    bulk_export_enabled: false
+    partitions:
+      enabled: false
+    subscriptions:
+      enabled: false
+
+    tester:
+      home:
+        name: "Local HAPI FHIR R4"
+        server_address: "http://localhost:8080/fhir"
+        fhir_version: R4
+      servers:
+        - id: "local-r4"
+          name: "Local R4"
+          base_url: "http://localhost:8080/fhir"
+          fhir_version: R4
+
+    allow_multiple_delete: true
+    allow_external_references: true
